@@ -1,0 +1,160 @@
+html {
+	min-width: 1200px;
+	font-size: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%
+}
+
+body {
+	margin: 0;
+	background-color: #ddd;
+	font: 14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+	
+}
+
+header {
+	background: #000;
+	height: 43px;
+	padding: 5px 0;
+	border: 0 0 1px 0;
+	border-color: #080808;
+}
+
+.container {
+	/*width: 100%;*/
+	width: 1200px;
+	margin: 0 auto;
+}
+
+header #icon{
+	float: left;
+	margin-left: 20px;
+}
+
+header nav {
+	float: right;
+	overflow: hidden;
+}
+
+nav li {
+	display: inline;
+	padding: 5px 10px 5px 10px;
+
+}
+
+nav a {
+	text-decoration: none;
+	color: #b0b0b0;
+}
+
+nav a:hover {
+	color: #fff;
+}
+
+body article {
+	margin: 20px;
+	padding: 20px;
+	background: #fff;
+	box-shadow: 1px 1px 2px 1px #848484;
+}
+
+table {
+	border-collapse: collapse;
+	border: 1px solid #ccc;
+	width: 100%;
+}
+
+table th {
+	background: #000;
+	color: #fff;
+	text-align: left;
+}
+
+th, td {
+	border: 1px solid #ccc;
+	padding-left: 5px;
+}
+
+.name, .classes {
+	width: 40%;
+}
+
+.rare {
+	width: 20%;
+}
+
+tr.total {
+	background: #ddd;
+}
+
+aside h1 {
+	border-left: 3px solid #aaa;
+	padding: 10px;
+}
+
+form div {
+	display: flex;
+
+}
+
+form div>p.form_left {
+	flex: 1;
+	margin: 0;
+	padding: 5px;
+	vertical-align: top;
+	text-align: right;
+}
+
+form div>p.form_right {
+	flex: 2;
+	margin: 0;
+	padding: 5px;
+}
+
+.hint {
+	font-size: 0.9em;
+	color: #999;
+}
+
+textarea {
+	width: 700px;
+	height: 100px;
+}
+
+#submit {
+	flex: 3;
+	height: 40px;
+	border-radius: 10px;
+	background: #06c;
+	color: #fff;
+	font-size: 1.2em;
+	line-height: 40px;
+}
+
+footer {
+	background: #000;
+	bottom: 0;
+	margin-top: 20px;
+	padding: 10px;
+	text-align: center;
+}
+
+footer p {
+	color: #fff;
+	font-family: "Microsoft Yahei";
+	font-size: 0.9em;
+}
+
+article#article3 > div {
+	width: 300px;
+	height: 300px;
+	border: 1px solid #000;
+	margin: 10px;
+	text-align: center;
+}
+
+article#article3 div img {
+	width: 270px;
+	height: 235px;
+	border: 1px solid #000;
+}
