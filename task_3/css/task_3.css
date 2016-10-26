@@ -1,0 +1,77 @@
+html {
+	font-size: 100%;
+/*	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%*/
+}
+
+body {
+	width: 100%;
+	margin: 0;
+	font: 14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+}
+
+div {
+	box-sizing: border-box;
+}
+
+.container {
+	/*display: table;*/
+	height: 400px;
+	background: #eee;
+	border: 1px solid #999;
+	margin: 20px;
+	padding: 20px;
+	/*border-spacing: 20px;*/
+}
+
+/*.table_row {
+	display: table-row;
+}
+*/
+div > p {
+	margin: 0;
+}
+
+#team {
+	/*display: table-cell;*/
+	float: left;
+	width: 200px;
+	height: 120px;
+	background: #fff;
+	border: 1px solid #999;
+	padding: 20px;
+	margin: 0;
+}
+
+#team img {
+	width: 80px;
+	height: 80px;
+	border: 1px solid #999;
+	margin-bottom: 0 0 -80px 0;
+}
+
+#team_name {
+	text-align: right;
+}
+
+#picture {
+	/*display: table-cell;*/
+	float: right;
+	border: 1px solid #999;
+	width: 120px;
+	margin: 20px;
+}
+
+#picture img {
+	width: 80px;
+	height: 80px;
+	/*margin: 0 20px;*/
+	border: 1px solid #999;
+}
+
+#content {
+	/*display: table-cell;*/
+	border: 1px solid #999;
+	margin-left: 220px;
+	margin-right: 160px;
+}
