@@ -7,6 +7,7 @@
  * };
  */
 var aqiData = {};
+var table = document.getElementById('aqi-table');
 
 /**
  * 从用户输入中获取数据，向aqiData中增加一条数据
@@ -23,7 +24,7 @@ function addAqiData() {
  */
 function renderAqiList() {
 	// alert("in render");
-	var table = document.getElementById('aqi-table');
+	// var table = document.getElementById('aqi-table');
 	table.innerHTML = "";
 
 	var trh = document.createElement('tr');
@@ -63,7 +64,8 @@ function renderAqiList() {
 	// alert(table.childNodes[1].childNodes.length);
 	for (var i = 0; i < table.childNodes.length; i++) {
 		var cur_del = table.childNodes[i].childNodes[2].firstChild;
-		// cur_del.onclick = delBtnHandle(cur_del);
+		// alert(table.childNodes[i].length);
+		cur_del.onclick = delBtnHandle;
 	}
 }
 
@@ -80,10 +82,12 @@ function addBtnHandle() {
  * 点击各个删除按钮的时候的处理逻辑
  * 获取哪个城市数据被删，删除数据，更新表格显示
  */
-function delBtnHandle(del_obj) {
+function delBtnHandle() {
   // do sth.
-  var del_tr = del_obj.parentNode.parentNode;
-  var del_city = del_tr.firstChild.firstChild.nodeValue;
+  // var table = document.getElementById('qi-table');
+  // var del_tr = table.childNodes[row_num];
+  // var del_city = del_tr.firstChild.firstChild.nodeValue;
+  var del_city = this.parentNode.firstChild.firstChild.nodeValue;
   delete aqiData[city];
 
   renderAqiList();
@@ -97,7 +101,6 @@ function init() {
 	// alert(add_btn);
 	add_btn.onclick = addBtnHandle;
   // 想办法给aqi-table中的所有删除按钮绑定事件，触发delBtnHandle函数
-
 }
 
 window.onload = init();
