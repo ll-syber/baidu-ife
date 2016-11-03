@@ -14,9 +14,27 @@ var aqiData = {};
  * 然后渲染aqi-list列表，增加新增的数据
  */
 function addAqiData() {
-	var city = document.getElementById('aqi-city-input').value;
-	var num = document.getElementById('aqi-value-input').value;
+	var city = document.getElementById('aqi-city-input').value.trim();
+	var num = document.getElementById('aqi-value-input').value.trim();
+	var is_illegal = false;
+	if (!checkEC(city)) {
+		document.getElementById('errormsg_city').innerHTML = '输入必须为中文或英文';
+		is_illegal = true;
+	} else {
+		document.getElementById('errormsg_city').innerHTML = '';
+	}
+	if (!checkNum(num)) {
+		document.getElementById('errormsg_num').innerHTML = '输入必须为数字';
+		is_illegal = true;
+	} else {
+		document.getElementById('errormsg_num').innerHTML = '';
+	}
+	if (is_illegal) {
+		return false;
+	}
+
 	aqiData[city] = num;
+	return true;
 }
 
 /**
@@ -68,13 +86,33 @@ function renderAqiList() {
 	}
 }
 
+function checkEC(val){     
+	var regc = new RegExp("[\\u4E00-\\u9FFF]+","g");
+	var rege = new RegExp(/^[A-Za-z]*$/);
+	if(regc.test(val) || rege.test(val)){
+		return true;
+	}
+	return false;
+}
+
+function checkNum (val) {
+	var regn = new RegExp(/^[0-9]*$/);
+	if (regn.test(val)) {
+		return true;
+	}
+	return false;
+}
+
 /**
  * 点击add-btn时的处理逻辑
  * 获取用户输入，更新数据，并进行页面呈现的更新
  */
 function addBtnHandle() {
-  addAqiData();
-  renderAqiList();
+	if (addAqiData()) {
+		renderAqiList();
+	}
+  // addAqiData();
+  // renderAqiList();
 }
 
 /**

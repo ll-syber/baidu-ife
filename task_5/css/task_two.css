@@ -162,6 +162,8 @@ footer p {
 article#article3 > ul {
 	list-style: none;
 	/*list-style-type: none;*/
+	display: flex;
+	flex-wrap: wrap;
 }
 
 article#article3  ul li {
@@ -170,11 +172,26 @@ article#article3  ul li {
 	border: 1px solid #000;
 	margin: 10px;
 	text-align: center;
-	/*display: inline;*/
+	/*float: left;*/
+	/*flex: 1;*/
 }
 
 article#article3 div img {
 	width: 270px;
 	height: 235px;
 	border: 1px solid #000;
+}
+
+#article3 ul li div {
+	padding: 10px 0;
+}
+
+#article1 img {
+	width: 300px;
+	height: 580px;
+}
+
+#article2 img {
+	width: 300px;
+	height: 300px;
 }
