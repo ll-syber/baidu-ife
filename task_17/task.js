@@ -42,12 +42,15 @@ var aqiSourceData = {
   "沈阳": randomBuildData(500)
 };
 
+//颜色
+var colors = ['#16324a', '#24385e', '#393f65', '#4e4a67', '#5a4563', '#b38e95',
+              '#edae9e', '#c1b9c2', '#bec3cb', '#9ea7bb', '#99b4ce', '#d7f0f8'];
 // 用于渲染图表的数据
 var chartData = {};
 
 // 记录当前页面的表单选项
 var pageState = {
-  nowSelectCity: -1,
+  nowSelectCity: 0,
   nowGraTime: "day"
 }
 
@@ -55,6 +58,7 @@ var pageState = {
  * 渲染图表
  */
 function renderChart() {
+  var chart = document.getElementById('chart');
 
 }
 
@@ -62,8 +66,10 @@ function renderChart() {
  * 日、周、月的radio事件点击时的处理函数
  */
 function graTimeChange() {
-  // 确定是否选项发生了变化 
-
+  // 确定是否选项发生了变化
+  var s_city = pageState.nowSelectCity; 
+  var gra_time = pageState.nowGraTime;
+  console.log(gra_time);
   // 设置对应数据
 
   // 调用图表渲染函数
@@ -74,7 +80,9 @@ function graTimeChange() {
  */
 function citySelectChange() {
   // 确定是否选项发生了变化 
-
+  var s_city = pageState.nowSelectCity; 
+  var gra_time = pageState.nowGraTime;
+  console.log(s_city);
   // 设置对应数据
 
   // 调用图表渲染函数
@@ -84,7 +92,14 @@ function citySelectChange() {
  * 初始化日、周、月的radio事件，当点击时，调用函数graTimeChange
  */
 function initGraTimeForm() {
-
+  var time = document.getElementById('form-gra-time');
+  var ipts = time.getElementsByTagName('input');
+  for (var i = 0; i < ipts.length; i++) {
+    ipts[i].onclick = function(){
+      pageState.nowGraTime = this.getAttribute('value');
+      graTimeChange();
+    }
+  }
 }
 
 /**
@@ -93,16 +108,25 @@ function initGraTimeForm() {
 function initCitySelector() {
   // 读取aqiSourceData中的城市，然后设置id为city-select的下拉列表中的选项
   var select = document.getElementById('city-select');
+  var i = 0;
   for (key in aqiSourceData) {
     var opt = document.createElement('option');
     var opt_text = document.createTextNode(key);
     opt.appendChild(opt_text);
+    opt.setAttribute('value', i);
     select.appendChild(opt);
-
-    opt.onclick = citySelectChange;
+    i++;
+    // opt.onclick = function(){
+    //   alert("qq");
+    //   pageState.nowSelectCity = i;
+    //   citySelectChange();
+    // }
   }
   // 给select设置事件，当选项发生变化时调用函数citySelectChange
-
+  select.onchange = function(){
+    pageState.nowSelectCity = select.value;
+    citySelectChange();
+  }
 }
 
 /**
