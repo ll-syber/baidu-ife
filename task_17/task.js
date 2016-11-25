@@ -50,7 +50,7 @@ var chartData = {};
 
 // 记录当前页面的表单选项
 var pageState = {
-  nowSelectCity: 0,
+  nowSelectCity: "北京",
   nowGraTime: "day"
 }
 
@@ -89,6 +89,20 @@ function citySelectChange() {
 }
 
 /**
+ * 时间和地区选择发生变化时的处理函数
+ * graTimeChange()与citySelectChange()统一
+ */
+function selectChange () {
+  // 确定是否选项发生了变化 
+  var s_city = pageState.nowSelectCity; 
+  var gra_time = pageState.nowGraTime;
+  // console.log(s_city);
+  // 设置对应数据
+
+  // 调用图表渲染函数
+}
+
+/**
  * 初始化日、周、月的radio事件，当点击时，调用函数graTimeChange
  */
 function initGraTimeForm() {
@@ -97,7 +111,8 @@ function initGraTimeForm() {
   for (var i = 0; i < ipts.length; i++) {
     ipts[i].onclick = function(){
       pageState.nowGraTime = this.getAttribute('value');
-      graTimeChange();
+      // graTimeChange();
+      selectChange();
     }
   }
 }
@@ -108,14 +123,14 @@ function initGraTimeForm() {
 function initCitySelector() {
   // 读取aqiSourceData中的城市，然后设置id为city-select的下拉列表中的选项
   var select = document.getElementById('city-select');
-  var i = 0;
+  // var i = 0;
   for (key in aqiSourceData) {
     var opt = document.createElement('option');
     var opt_text = document.createTextNode(key);
     opt.appendChild(opt_text);
-    opt.setAttribute('value', i);
+    opt.setAttribute('value', key);
     select.appendChild(opt);
-    i++;
+    // i++;
     // opt.onclick = function(){
     //   alert("qq");
     //   pageState.nowSelectCity = i;
@@ -125,7 +140,8 @@ function initCitySelector() {
   // 给select设置事件，当选项发生变化时调用函数citySelectChange
   select.onchange = function(){
     pageState.nowSelectCity = select.value;
-    citySelectChange();
+    // citySelectChange();
+    selectChange();
   }
 }
 
@@ -135,6 +151,22 @@ function initCitySelector() {
 function initAqiChartData() {
   // 将原始的源数据处理成图表需要的数据格式
   // 处理好的数据存到 chartData 中
+  chartData = {};
+  var s_city = pageState.nowSelectCity; 
+  var gra_time = pageState.nowGraTime;
+  var rdb = aqiSourceData[s_city];
+
+  if("day" == gra_time){
+    for (key in rdb) {
+      chartData.push(rdb[key]);
+    }
+  } else if ("week" == gra_time) {
+    var count = 0;
+    for (key in rdb) {
+      // chartData.push(rdb[key]);
+    }
+  }
+
 }
 
 /**
