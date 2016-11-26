@@ -59,33 +59,16 @@ var pageState = {
  */
 function renderChart() {
   var chart = document.getElementById('chart');
-
-}
-
-/**
- * 日、周、月的radio事件点击时的处理函数
- */
-function graTimeChange() {
-  // 确定是否选项发生了变化
-  var s_city = pageState.nowSelectCity; 
-  var gra_time = pageState.nowGraTime;
-  console.log(gra_time);
-  // 设置对应数据
-
-  // 调用图表渲染函数
-}
-
-/**
- * select发生变化时的处理函数
- */
-function citySelectChange() {
-  // 确定是否选项发生了变化 
-  var s_city = pageState.nowSelectCity; 
-  var gra_time = pageState.nowGraTime;
-  console.log(s_city);
-  // 设置对应数据
-
-  // 调用图表渲染函数
+  chart.innerHTML = "";
+  var i = 0;
+  for (key in chartData) {
+    var bar = document.createElement("div");
+    bar.className = pageState.nowGraTime;
+    bar.style.height = chartData[key];
+    bar.style.background = colors[i*7%12];
+    i++;
+    chart.appendChild(bar);
+  }
 }
 
 /**
@@ -94,12 +77,10 @@ function citySelectChange() {
  */
 function selectChange () {
   // 确定是否选项发生了变化 
-  var s_city = pageState.nowSelectCity; 
-  var gra_time = pageState.nowGraTime;
-  // console.log(s_city);
   // 设置对应数据
-
+  initAqiChartData();
   // 调用图表渲染函数
+  renderChart();
 }
 
 /**
@@ -130,12 +111,6 @@ function initCitySelector() {
     opt.appendChild(opt_text);
     opt.setAttribute('value', key);
     select.appendChild(opt);
-    // i++;
-    // opt.onclick = function(){
-    //   alert("qq");
-    //   pageState.nowSelectCity = i;
-    //   citySelectChange();
-    // }
   }
   // 给select设置事件，当选项发生变化时调用函数citySelectChange
   select.onchange = function(){
@@ -157,14 +132,38 @@ function initAqiChartData() {
   var rdb = aqiSourceData[s_city];
 
   if("day" == gra_time){
-    for (key in rdb) {
-      chartData.push(rdb[key]);
-    }
+    chartData = rdb;
+    console.log(chartData);
   } else if ("week" == gra_time) {
     var count = 0;
+    var tol = 0;
     for (key in rdb) {
-      // chartData.push(rdb[key]);
+      tol += rdb[key];
+      count++;
+      if (count%7 == 0) {
+        chartData[key] = Math.round(tol/7);
+        tol = 0;
+      }
     }
+    console.log(chartData);
+  } else if ("month" == gra_time) {
+    var count = 0;
+    var tol = 0;
+    for (key in rdb) {
+      tol += rdb[key];
+      count++;
+      if (count == 31) {
+        chartData["一月"] = Math.round(tol/31);
+        tol = 0;
+      } else if (count == 60) {
+        chartData["二月"] = Math.round(tol/29);
+        tol = 0;
+      } else if (count == 91) {
+        chartData["三月"] = Math.round(tol/31);
+        tol =0;          
+      }
+    }
+    console.log(chartData);
   }
 
 }
@@ -176,6 +175,7 @@ function init() {
   initGraTimeForm()
   initCitySelector();
   initAqiChartData();
+  renderChart()
 }
 
 init();

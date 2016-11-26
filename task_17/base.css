@@ -11,4 +11,23 @@ fieldset {
 	height: 600px;
 	border-bottom: 1px solid #000;
 	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	/*align-content: center;*/
+}
+
+.day {
+	width: 10px;
+	margin: 0 5px;
+	/*animation: heightAnim .5s ease-in-out;*/
+}
+
+.week {
+	width: 80px;
+	margin: 0 20px;
+}
+
+.month {
+	width: 200px;
+	margin: 0 40px;
 }
