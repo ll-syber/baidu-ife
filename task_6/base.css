@@ -1,0 +1,81 @@
+html {
+	background: #777;
+}
+
+body {
+	width: 980px;
+	height: 1386px;
+	margin: 0 auto;
+	background: #fff;
+}
+
+.wrap {
+	width: 892px;
+	margin: 0 auto;
+}
+header {
+	font-size: 12px;
+	font-family: "SimHei" Helvetica, Arial, sans-serif;
+}
+
+.header-wrap {
+	height: 61px;
+	border-bottom: 2px solid #938e8c;
+	position: relative;
+}
+
+.header-left {
+	position: absolute;
+	left: 0;
+}
+
+#top-icon {
+	margin-top: -20px;
+	margin-left: 5px;
+	color: white;
+}
+
+.header-right {
+	position: absolute;
+	right: 0;
+	bottom: 2px;
+	color: #d45d5c;
+}
+
+article {
+	margin: 30px 0;
+	/*display: flex;*/
+}
+
+/*.dsp-flex {
+	display: flex;
+}*/
+
+#a1-img {
+	position: relative;
+}
+
+#datu {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#green {
+	position: absolute;
+	top: 0;
+	left: 0;
+} 
+
+#red {
+	position: absolute;
+	top: 0;
+	left: 450px;
+}
+
+#about {
+	height: 301px;
+	width: 203px;
+	border-top: solid 2px #cc8091;
+	float: right;
+}
