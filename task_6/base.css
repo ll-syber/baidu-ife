@@ -1,3 +1,8 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
 html {
 	background: #777;
 }
@@ -15,7 +20,7 @@ body {
 }
 header {
 	font-size: 12px;
-	font-family: "SimHei" Helvetica, Arial, sans-serif;
+	font-family: "SimHei", Helvetica, Arial, sans-serif;
 }
 
 .header-wrap {
@@ -27,11 +32,15 @@ header {
 .header-left {
 	position: absolute;
 	left: 0;
+	background: #d45d5c;
+	width: 110px;
+	height: 61px;
 }
 
 #top-icon {
-	margin-top: -20px;
-	margin-left: 5px;
+	position: absolute;
+	left: 5px;
+	bottom: 2px;
 	color: white;
 }
 
@@ -44,12 +53,7 @@ header {
 
 article {
 	margin: 30px 0;
-	/*display: flex;*/
 }
-
-/*.dsp-flex {
-	display: flex;
-}*/
 
 #a1-img {
 	position: relative;
@@ -63,19 +67,35 @@ article {
 
 #green {
 	position: absolute;
+	width: 191px;
+	height: 301px;
 	top: 0;
 	left: 0;
+	background: green;
+	opacity: 0.2;
 } 
 
 #red {
 	position: absolute;
+	width: 191px;
+	height: 301px;
 	top: 0;
 	left: 450px;
+	background: red;
+	opacity: 0.2;
 }
 
-#about {
+#aside {
 	height: 301px;
 	width: 203px;
 	border-top: solid 2px #cc8091;
 	float: right;
+	font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
+}
+
+#about {
+	font-size: 24px;
+	text-decoration: underline;
+	/*line-height: 40px;*/
+	color: #000;
 }
