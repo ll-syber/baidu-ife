@@ -52,7 +52,7 @@ var chartData = {};
 var pageState = {
   nowSelectCity: "北京",
   nowGraTime: "day"
-}
+};
 
 /**
  * 渲染图表
@@ -172,10 +172,10 @@ function initAqiChartData() {
  * 初始化函数
  */
 function init() {
-  initGraTimeForm()
+  initGraTimeForm();
   initCitySelector();
   initAqiChartData();
-  renderChart()
+  renderChart();
 }
 
 init();
