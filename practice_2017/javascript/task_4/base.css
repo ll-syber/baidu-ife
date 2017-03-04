@@ -28,4 +28,5 @@ html, body {
   text-align: center;
   line-height: 40px;
   font-size: 18px;
+  cursor: default;
 }
