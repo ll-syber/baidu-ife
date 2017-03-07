@@ -19,10 +19,17 @@ h3 {
 img {
   display: block;
 }
+ul, li {
+  list-style: none;
+}
 
 .wrap {
   width: 892px;
+  height: 100%;
   margin: 0 auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
 }
 
 /*.header {
@@ -45,7 +52,7 @@ img {
   height: 61px;
   border-bottom: 2px solid #938e8c;
   font-family: "SimHei", Helvetica, Arial, sans-serif;
-  margin-bottom: 30px;
+  /*margin-bottom: 30px;*/
 }
 
 .header-left {
@@ -121,6 +128,9 @@ article {
   border-top: solid 2px #cc8091;
   float: right;
   font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
 }
 
 .first-part h3, .second-part h3 {
@@ -130,12 +140,12 @@ article {
 .brf h3 {
   font-size: 24px;
   color: #000;
-  /*line-height: 40px;*/
+  line-height: 40px;
 }
 
-.brf h3::first-letter {
+/*.brf h3::first-letter {
   font-size: 1.5em;
-}
+}*/
 
 .small-about {
   font-size: 12px;
@@ -149,3 +159,297 @@ article {
   width: 641px;
 }
 
+.seven-hundred {
+  flex: 1;
+  font-size: 116px;
+  color: #75b86b;
+  font-style: oblique;
+  margin-left: -20px;
+}
+
+.th-t {
+  /*height: 72px;*/
+  /*overflow: hidden;*/
+  color: #cc8091;
+  flex: 1;
+}
+
+.th-t::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.th-t p:first-child {
+  float: left;
+  /*display: block;*/
+  font-size: 55px;
+  line-height: 55px;
+  margin-top: -5px;
+  margin-right: 5px;
+}
+
+.th-t p:nth-child(2) {
+  font-size: 21px;
+  line-height: 21px;
+  /*margin-top: 15px;*/
+  padding-top: 12px;
+}
+
+.th-t p:nth-child(3) {
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.seconde-part > div {
+  box-sizing: border-box;
+}
+.what, .when {
+  flex: 4;
+  padding-right: 2rem;
+}
+.what h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #418c59;
+  line-height: 35px;
+}
+.what p, .article-part p {
+  font-family: "SimSun", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  color: #767777;
+}
+
+.when h3 {
+  font-size: 16px;
+  color: #d2994f;
+  font-weight: bold;
+  /*line-height: 35px;*/
+}
+.when p, .how p, .how span {
+  font-family: "SimSun", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 16px;
+  color: #231815;
+  opacity: 0.7;
+}
+
+.how {
+  flex: 3;
+}
+.how h3 {
+  font-size: 16px;
+  color: #cc7580;
+  font-weight: bold;
+  line-height: 35px;
+}
+.how p {
+  line-height: 24px;
+  margin-top: 0;
+}
+.how ul {
+  margin-top: 35px;
+}
+.how span{
+  color: #cd4a48;
+  font-style: oblique;
+}
+
+.third-part > div {
+  flex: 1;
+}
+
+.title-part {
+  width: 415px;
+  border-bottom: solid 2px;
+}
+.title-part h3 {
+  font-family: "SimHei", Helvetica, Arial, sans-serif;
+  margin: 0 16px 16px 0;
+  font-weight: bold;  
+  font-size: 42px;
+  line-height: 48px;
+  color: #11456b;
+}
+.title-part h3 span {
+  font-size: 65px;
+  color: #f5e627;
+  font-style: oblique;
+}
+.title-part h3:last-child {
+  font-size: 33px;
+}
+
+.article-part {
+  width: 415px;
+  /*overflow: hidden;*/
+}
+.article-part p:first-child {
+  margin-top: 20px;
+}
+.article-part p:first-child span {
+  font-size: 70px;
+  color: #f5e327;
+  width: 75px;
+  height: 75px;
+  line-height: 75px;
+  font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
+  float: left;
+}
+.article-part p:nth-child(4), .article-part p:nth-child(5) {
+  text-indent: 2em;
+}
+.article-pct {
+  float: right;
+  margin: 15px 0 15px 20px;
+  /*margin-top: 100px;*/
+}
+
+.mid-show {
+  position: relative;
+  width: 458px;
+  height: 257px;
+}
+.mid-pct {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.pct-title {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 61px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.pct-title p{
+  font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 140%;
+  color: #72b16a;
+  font-style: oblique;
+}
+.pct-title span {
+  font-size: 26px;
+  color: #fff;
+  line-height: 61px;
+  margin-left: 30px;
+  padding: 5px 10px;
+  font-style: normal;
+  border-left: solid 3px #72b16a;
+}
+
+.last {
+  width: 459px;
+  height: 318px;
+  position: relative;
+  top: 30px;
+  background-color: #eeeed6;
+}
+
+.number {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #d45d5c;
+  width: 260px;
+  height: 160px;
+  color: #fff;
+}
+
+.number h3 {
+  font-family: "SimHei", Helvetica, Arial, sans-serif;
+  font-size: 21px;
+  line-height: 24px;
+  margin-top: 38px;
+  margin-left: 75px;
+  font-style: oblique;
+}
+.number h3:first-child {
+  float: left;
+  font-size: 110px;
+  height: 86px;
+  line-height: 86px;
+  margin-left: 10px;
+  border-right: solid 2px #fff;
+  font-style: normal;
+}
+.number h3:nth-child(3) {
+  margin-top: 0;
+}
+.number p {
+  margin-left: 75px;
+  font-family: "SimHei", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  padding-bottom: 6px;
+}
+
+.hw {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  width: 199px;
+  height: 160px;
+  font-family: "SimHei", Helvetica, Arial, sans-serif;
+  padding: 19px;
+}
+.quotation {
+  font-size: 72px;
+  font-style: normal;
+  color: #d45d5c;
+  display: inline-block;
+  vertical-align: top;
+  height: 40px;
+}
+.hw span:first-child {
+  margin-top: -20px;
+  margin-left: -40px;
+}
+.hw span:nth-child(2) {
+  font-size: 14px;
+  color: #5a5b5b;
+  font-style: italic;
+  padding-left: 4px;
+}
+
+.last ul {
+  padding: 25px;
+  color: #5a5b5b;
+  padding-right: 19px;
+}
+
+.last li {
+  font-family: "SimSun", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.last li div{
+  display: inline-block;
+  height: 16px;
+  width: 8px;
+  box-sizing: border-box;
+  border-bottom: solid 8px #5a5b5b;
+  border-left: solid 4px rgba(0,0,0,0);
+  border-right: solid 4px rgba(0,0,0,0);
+  border-top: solid 8px rgba(0,0,0,0);
+  margin-right: 10px;
+}
+
+.last li span {
+  font-size: 12px;
+  text-align: right;
+}
+
+.footer {
+  font-family: "SimHei", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  color: #454545;
+  text-align: right;
+  height: 50px;
+  border-top: solid 1px #938e8c;
+}
