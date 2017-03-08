@@ -9,14 +9,26 @@ window.onload = function () {
   //返回true为验证通过
   function checkNum (el) {
     var reg = /\D/g;
-    return el.value.length ? !reg.test(el.value) : false && (el.value - 0 > 9 && el.value - 0 < 101);
+    if (!el.value.length) {
+      alert('You should input a number');
+      return false;
+    } else if (reg.test(el.value)) {
+      alert('You should input a number');
+      return false;
+    } else if (items.length > 60) {
+      alert('The items are limited to 60');
+      return false;
+    } else if (el.value - 0 < 10 || el.value - 0 > 101) {
+      alert('The number should be between 10 and 100');
+      return false;
+    } else {
+      return true;
+    }
   }
 
   //4个按键的处理函数
   function leftIn () {
-    if (items.length > 60) {
-      alert('The number of items are limited to 60');
-    } else if (checkNum(numberInput)) {
+    if (checkNum(numberInput)) {
       var li = document.createElement('li');
       li.innerHTML = numberInput.value;
       li.style.height = numberInput.value * 3 + 'px';
@@ -25,21 +37,15 @@ window.onload = function () {
       } else {
         numberList.appendChild(li);
       }
-    } else {
-      alert('You should input a number');
     }
   }
 
   function rightIn () {
-    if (items.length > 60) {
-      alert('The number of items are limited to 60');
-    } else if (checkNum(numberInput)) {
+   if (checkNum(numberInput)) {
       var li = document.createElement('li');
       li.innerHTML = numberInput.value;
       li.style.height = numberInput.value * 3 + 'px';
       numberList.appendChild(li);
-    } else {
-      alert('You should input a number');
     }
   }
 

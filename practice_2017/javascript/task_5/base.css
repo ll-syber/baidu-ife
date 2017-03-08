@@ -16,20 +16,18 @@ html, body {
 .number-queue {
   display: flex;
   height: 320px;
-  width: 600px;
+  width: 100%;
   align-items: flex-end;
 }
 
 .number-queue > li {
   display: block;
   width: 20px;
-  /*height: 40px;*/
   padding: 5px;
   margin: 5px;
   background-color: red;
   color: #fff;
   text-align: center;
-  /*line-height: 40px;*/
   font-size: 14px;
   cursor: default;
 }
