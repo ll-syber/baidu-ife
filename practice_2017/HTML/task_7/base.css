@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  width: 100%;
+  font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
+  font-size: calc(12px + 0.5vw);
+}
+i {
+  font-style: normal;
+}a {
+  display: block;
+  text-decoration: none;
+}
+li {
+  list-style: none;
+  display: inline-block;
+}
+
+.base-color__red {
+  color: #e74f4d;
+}
+
+.wrap {
+  min-width: 1280px;
+  width: 100%;
+}
+
+.header {
+  height: 3rem;
+  /*background-color: #ccc;*/
+}
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 3rem;
+}
+
+.logo {
+  float: left;
+  height: 100%;
+}
+.logo-word {
+  line-height: 3rem;
+}
+.logo-icon {
+  vertical-align: middle;
+}
+
+.login {
+  float: right;
+  font-size: 0.8rem;
+  padding-top: 0.7rem;
+  vertical-align: middle;
+  margin-left: 1rem;
+}
+.login-icon, .login-word {
+  vertical-align: top;
+}
+
+.web-link {
+  float: right;
+  height: 100%;
+}
+.web-link--item {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 0.7rem;
+  margin: 0 0.3rem;
+}
+.web-link--item a {
+  font-size: 0.8rem;
+  color: #777;
+}
+.current-page {
+  border-bottom: solid 4px #e74f4d;
+}
+.current-page a {
+  color: #e74f4d;
+}
+
+.title {
+  position: relative;
+  width: 100%;
+  min-height: 854px;
+  height: 66vw;
+  background-image: url(imgs/title_bg.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.title-cover {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.2);
+  z-index: 0;
+}
+.title-en, .title-cn, .start {
+  position: absolute;
+  font-weight: normal;
+  color: #fff;
+}
+.title-en {
+  left: 7rem;
+  top: 12rem;
+  font-size: 3.5rem;
+}
+.title-cn {
+  left: 7.5rem;
+  top: 17rem;
+  font-size: 1rem;
+}
+.start {
+  /*display: block;*/
+  left: 7.5rem;
+  top: 24rem;
+  font-size: 2rem;
+  width: 20rem;
+  height: 4rem;
+  line-height: 4rem;
+  background-color: #e74f4d;
+  text-align: center;
+}
