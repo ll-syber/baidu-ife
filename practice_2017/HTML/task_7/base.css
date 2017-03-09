@@ -5,7 +5,7 @@
 html, body {
   width: 100%;
   font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
-  font-size: calc(12px + 0.5vw);
+  font-size: calc(22px + 0.0125*(100vw - 1280px));
 }
 i {
   font-style: normal;
@@ -47,17 +47,19 @@ li {
 }
 .logo-icon {
   vertical-align: middle;
+  height: 1.2rem;
 }
 
 .login {
   float: right;
   font-size: 0.8rem;
   padding-top: 0.7rem;
-  vertical-align: middle;
+  /*vertical-align: middle;*/
   margin-left: 1rem;
 }
 .login-icon, .login-word {
-  vertical-align: top;
+  vertical-align: middle;
+  height: 0.8rem;
 }
 
 .web-link {
@@ -105,23 +107,24 @@ li {
   color: #fff;
 }
 .title-en {
-  left: 7rem;
-  top: 12rem;
-  font-size: 3.5rem;
+  left: 5rem;
+  top: 9rem;
+  font-size: 3rem;
 }
 .title-cn {
-  left: 7.5rem;
-  top: 17rem;
+  left: 5.5rem;
+  top: 14rem;
   font-size: 1rem;
+  line-height: 1.6rem;
 }
 .start {
   /*display: block;*/
-  left: 7.5rem;
-  top: 24rem;
-  font-size: 2rem;
-  width: 20rem;
-  height: 4rem;
-  line-height: 4rem;
+  left: 5.5rem;
+  top: 21rem;
+  font-size: 1.8rem;
+  width: 17rem;
+  height: 3.5rem;
+  line-height: 3.5rem;
   background-color: #e74f4d;
   text-align: center;
 }
