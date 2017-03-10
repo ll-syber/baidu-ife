@@ -2,4 +2,5 @@
 
 Codes of missions for baidu ife
 
-baidu-ife: http://ife.baidu.com/task/all
+baidu-ife: http://ife.baidu.com/
+
