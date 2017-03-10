@@ -5,7 +5,12 @@
 html, body {
   width: 100%;
   font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
-  font-size: calc(22px + 0.0125*(100vw - 1280px));
+  font-size: calc(22px + 0.015*(100vw - 1280px));
+}
+@media screen and (max-width: 1280px) {
+  html, body {
+    font-size: 22px;
+  }
 }
 i {
   font-style: normal;
