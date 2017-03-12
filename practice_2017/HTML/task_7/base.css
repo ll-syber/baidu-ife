@@ -138,5 +138,43 @@ li {
   position: relative;
   background-color: #fff;
   margin-top: -5rem;
+  height: 10rem;
   /*z-index: 5;*/
+}
+.des_list {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 2rem;
+  font-weight: lighter;
+}
+.des_item {
+  width: 13rem;
+}
+.des_item img {
+  width: 1.5rem;
+  display: block;
+  margin: 2rem auto;
+}
+.des_item p {
+  font-size: 0.6rem;
+  width: 7rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.mid {
+  width: 100%;
+  height: 14rem;
+  background-color: #edecec;
+  text-align: center;
+}
+.mid img {
+  width: 4rem;
+  margin-top: 3.5rem;
+}
+.mid p {
+  font-size: 2rem;
+  color: #a1a1a1;
+  margin-top: 1rem;
 }
