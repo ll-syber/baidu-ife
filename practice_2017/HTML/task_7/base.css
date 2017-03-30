@@ -214,14 +214,15 @@ li {
   color: #fff;
   font-size: 0.5rem;
 }
-.map ul {
+.map > ul {
   position: relative;
   margin-top: 1.6rem;
   z-index: 1;
 }
-.map li {
+.map > ul > li {
   padding: 0.4rem;
   /*overflow: hidden;*/
+  vertical-align: top;
   position: relative;
 }
 .map input, .map a {
@@ -235,7 +236,8 @@ li {
   background-color: #be4e48;
   font-size: 0.5rem;
   color: #fff;
-  line-height: 0.8rem;
+  /*line-height: 0.8rem;*/
+  margin-top: 0.3rem;
   outline: none;
 }
 .arrow {
@@ -259,4 +261,30 @@ li {
   border-bottom: solid 0.05rem #fff;
   transform: translate(0.2rem, 0.1rem) rotate(45deg);
   /*transform: ;*/
+}
+.selection {
+  display: none;
+  /*margin-top: 0;*/
+  box-sizing: border-box;
+  border: solid 2px #be4e48;
+  background-color: #ddd;
+  width: 8rem;
+  height: 6rem;
+}
+.province:hover .selection {
+  display: block;
+}
+
+.selection li {
+  display: list-item;
+  text-align: left;
+  padding-left: 15%;
+  width: 85%;
+  height: 1rem;
+  font-size: 0.5rem;
+  line-height: 1rem;
+}
+.selection li:hover {
+  background-color: #be4e48;
+  color: #fff;
 }
