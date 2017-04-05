@@ -3,7 +3,7 @@ window.onload = function () {
   class Node {
     constructor (data) {
       this.data = data;
-      this.value = this.getValue();  
+      this.value = this.getValue();   
       this.subNodes = [];  
     }
 
@@ -41,16 +41,17 @@ window.onload = function () {
       this.targetCls = undefined;
     }
     
-    init () {
-      this.appendChildNode(this.root);
+    init (fn) {
+      this.appendChildNode(this.root, fn);
     }
-    appendChildNode(node) {
+    appendChildNode(node, fn) {
       let childEles = node.getNodeData().childNodes;
+      fn(node.getNodeData());
       for (let i = 0; i < childEles.length; i++) {
         if (childEles[i].nodeType === 1){
           node.addsubNode(new Node(childEles[i]));
           let lastChildIndex = node.getSubNodes().length - 1;
-          this.appendChildNode(node.getSubNodes()[lastChildIndex]);
+          this.appendChildNode(node.getSubNodes()[lastChildIndex], fn);
         }
       }
     }
@@ -102,26 +103,56 @@ window.onload = function () {
       let ele = node.getNodeData();
       let tmp = ele.className;
       setTimeout(() => {
-        // console.log('cur');
         console.log(node.getValue());
         ele.className += ' current';
       }, count * 1000);
 
       setTimeout(() => {
-        // console.log('cancel');
         ele.className = tmp;
       }, (count + 1) * 1000);
       count++;
   }
 
-  let [rFirstBtn, rLastBtn, searchBtn] = document.getElementsByTagName('button');
+  function resetSelect () {
+    selectedEle.className = selectedEleCls;
+    selectedEle = undefined;
+    selectedEleCls = '';
+    fatherEle = undefined;    
+  }
+
+  function bindClick (ele) {
+    ele.addEventListener('click', function (evt) {
+      if (selectedEle) {
+        resetSelect();
+      }
+      selectedEle = ele;
+      selectedEleCls = selectedEle.className;
+      selectedEle.className += ' selected';
+      fatherEle = selectedEle.parentNode;
+      evt.stopPropagation();
+    });   
+  }
+
+  let [rFirstBtn, rLastBtn, searchBtn, insertBtn, deleteBtn] = document.getElementsByTagName('button');
+  let body = document.getElementsByTagName('body')[0];
   let rootEle = document.getElementById('root');
   let text = document.getElementsByTagName('input')[0];
   let count = 0;
+  let selectedEle,
+      selectedEleCls = '',
+      fatherEle;
 
   let rootNode = new Node (rootEle);
   let tree = new CommonTree (rootNode);
-  tree.init();
+  tree.init(function (ele) {
+    bindClick(ele);
+  });
+
+  body.addEventListener('click', function () {
+    if (selectedEle) {
+      resetSelect();
+    }
+  });
 
   rFirstBtn.addEventListener('click', function () {
     tree.rootFirst(rootNode, function (node) {
@@ -139,8 +170,7 @@ window.onload = function () {
 
   searchBtn.addEventListener('click', function () {
     tree.reset();
-    // console.log(text.value);
-    tree.searchValue(rootNode, text.value, function (node) {
+    tree.searchValue(rootNode, text.value.trim(), function (node) {
       changeColor(node);
     });
     setTimeout(() => {
@@ -152,4 +182,34 @@ window.onload = function () {
     }, (count+1) *1000);
     count = 0;
   });
+
+  insertBtn.addEventListener('click', function () {
+    if (selectedEle) {
+      if (text.value.trim()) {
+        let newEle = document.createElement('div');
+        newEle.innerHTML = text.value.trim();
+        newEle.className = 'new';
+        selectedEle.appendChild(newEle);
+      } else {
+        alert('You should input a name first');
+      }
+    } else {
+      alert('You should chose a element first');
+    }
+    tree.init(function (ele) {
+      bindClick(ele);
+    });
+  });
+
+  deleteBtn.addEventListener('click', function () {
+    if (selectedEle) {
+      fatherEle.removeChild(selectedEle);
+      resetSelect();
+    } else {
+      alert('You should chose a element first');
+    }
+    tree.init(function (ele) {
+      bindClick(ele);
+    });
+  });  
 };

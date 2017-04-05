@@ -1,0 +1,89 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  height: 100%;
+  width: 100%;
+}
+div {
+  border: solid 1px #000;
+}
+
+.btn-bar {
+  width: 600px;
+  margin: 20px;
+  border-radius: 5px;
+}
+.btn-bar legend {
+  margin-left: 10px;
+}
+.btn-bar button {
+  margin: 10px;
+}
+.input-area {
+  float: right;
+  border: none;
+}
+.btn-bar::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.root {
+  width: 1600px;
+  height: 120px;
+  margin: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  background-color: #fff;
+  color: #000;
+}
+
+.second, .third, .fourth, .new {
+  margin: 10px;
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  background-color: #fff;
+  color: #000;
+}
+
+/*.fourth, .new {
+  margin: 10px;
+  flex: 1;
+  text-align: center;
+  background-color: #fff;
+  color: #000;
+}*/
+
+.current {
+  background-color: #f00;
+  color: #fff;
+}
+
+.got {
+  background-color: #00f;
+  color: #fff;
+}
+
+.selected {
+/*  background-color: orange;
+  color: #fff;*/
+  animation: twinkle 1s linear infinite;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>tree</title>
+  <link rel="stylesheet" href="base.css">
+</head>
+<body>
+  <fieldset id="btn-bar" class="btn-bar">
+    <legend>遍历方式</legend>
+    <button>前序遍历</button>
+    <button>后序遍历</button>
+    <div class="input-area">
+      <input type="text">
+      <button>搜索</button>
+      <button>添加</button>
+      <button>删除</button>
+    </div>
+  </fieldset>
+  <div id="root" class="root">
+    device
+    <div class="second">
+      mobile phone
+      <div class="third">
+        Android
+        <div class="fourth">Sumsung</div>
+        <div class="fourth">MI</div>
+        <div class="fourth">One Plus</div>
+      </div>
+      <div class="third">
+        iphone
+      </div>
+    </div>
+    <div class="second">
+      pad
+      <div class="third">iPad</div>
+      <div class="third">
+        Android Pad
+        <div class="fourth">lenovo</div>
+        <div class="fourth">Huawei</div>
+      </div>
+      <div class="third">
+        Windows Pad
+        <div class="fourth">Cuber</div>
+      </div>
+    </div>
+  </div>
+  <script src='tree.js'></script>
+</body>
+</html>
