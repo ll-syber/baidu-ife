@@ -31,6 +31,9 @@ window.onload = function () {
     getSubNodes () {
       return this.subNodes;
     }
+    // resetNode () {
+    //   this.data = undefined;
+    // }
   }
 
   class CommonTree {
@@ -91,12 +94,13 @@ window.onload = function () {
       }
     }
 
-    reset () {
+    resetTarget () {
       this.found = false;
       if (this.targetNode)
         this.targetNode.getNodeData().className = this.targetCls;
       this.targetNode = undefined;
     }
+
   }
 
   function changeColor (node) {
@@ -155,6 +159,10 @@ window.onload = function () {
   });
 
   rFirstBtn.addEventListener('click', function () {
+    if (selectedEle) {
+      resetSelect();
+    }
+    tree.resetTarget();
     tree.rootFirst(rootNode, function (node) {
       changeColor(node);
     });
@@ -162,6 +170,10 @@ window.onload = function () {
   });
 
   rLastBtn.addEventListener('click', function () {
+    if (selectedEle) {
+      resetSelect();
+    }
+    tree.resetTarget();
     tree.rootLast(rootNode, function (node) {
       changeColor(node);
     });
@@ -169,7 +181,10 @@ window.onload = function () {
   });
 
   searchBtn.addEventListener('click', function () {
-    tree.reset();
+    if (selectedEle) {
+      resetSelect();
+    }
+    tree.resetTarget();
     tree.searchValue(rootNode, text.value.trim(), function (node) {
       changeColor(node);
     });
@@ -184,6 +199,7 @@ window.onload = function () {
   });
 
   insertBtn.addEventListener('click', function () {
+    tree.resetTarget();
     if (selectedEle) {
       if (text.value.trim()) {
         let newEle = document.createElement('div');
@@ -196,18 +212,26 @@ window.onload = function () {
     } else {
       alert('You should chose a element first');
     }
+    // tree.init(function (ele) {
+    //   bindClick(ele);
+    // });
+    rootNode = new Node (rootEle);
+    tree = new CommonTree (rootNode);
     tree.init(function (ele) {
       bindClick(ele);
     });
   });
 
   deleteBtn.addEventListener('click', function () {
+    tree.resetTarget();
     if (selectedEle) {
       fatherEle.removeChild(selectedEle);
       resetSelect();
     } else {
       alert('You should chose a element first');
     }
+    rootNode = new Node (rootEle);
+    tree = new CommonTree (rootNode);
     tree.init(function (ele) {
       bindClick(ele);
     });
